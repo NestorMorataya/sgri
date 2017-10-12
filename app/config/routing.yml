@@ -1,0 +1,15 @@
+empresa_empresa:
+    resource: "@EmpresaBundle/Controller/EmpresaController.php"
+    type:     annotation
+
+user:
+    resource: "@UserBundle/Resources/config/routing.yml"
+    prefix:   /user
+
+empresa:
+    resource: "@EmpresaBundle/Resources/config/routing.yml"
+    prefix:   /empresa
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
