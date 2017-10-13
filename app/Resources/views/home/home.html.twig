@@ -1,1 +1,28 @@
-Bienvenido!
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/panelVertical.css')}}">    
+{% endblock %}
+
+
+{% block body %}
+<div class="container" style="margin-top:30px; margin-bottom:210px" s>
+   <div class="container text-center">
+   		<div class="page-header">
+   			<h2>Bienvenido</h2>
+   		</div>
+   </div>
+
+   <div class="vertical-menu">
+   		<div class="page-header">
+   			<h3>Gestion</h3>
+   		</div>
+	  <a href="#">Activos</a>
+	  <a href="#">Categorias de activos</a>
+   </div>
+
+
+
+
+</div>
+{% endblock %}
