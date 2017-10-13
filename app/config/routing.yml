@@ -1,3 +1,7 @@
+user_usuario:
+    resource: "@UserBundle/Controller/UsuarioController.php"
+    type:     annotation
+
 empresa_empresa:
     resource: "@EmpresaBundle/Controller/EmpresaController.php"
     type:     annotation
@@ -9,6 +13,9 @@ user:
 empresa:
     resource: "@EmpresaBundle/Resources/config/routing.yml"
     prefix:   /empresa
+    
+login_check:
+    pattern: /login_check 
 
 app:
     resource: '@AppBundle/Controller/'

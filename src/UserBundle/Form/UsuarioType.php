@@ -1,19 +1,19 @@
 <?php
 
-namespace EmpresaBundle\Form;
+namespace UserBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class EmpresaType extends AbstractType
+class UsuarioType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('nombre')->add('objetivos','textarea')->add('politicas','textarea')->add('alcances','textarea');
+        $builder->add('username')->add('firstName')->add('lastName')->add('email')->add('password')->add('isActive','checkbox')->add('createdAt')->add('updateAt')->add('role', 'choice', array('choices' => array('ROLE_ADMIN' => 'Administrator'), 'placeholder' => 'Seleccionar un rol'));
     }
     
     /**
@@ -22,7 +22,7 @@ class EmpresaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'EmpresaBundle\Entity\Empresa'
+            'data_class' => 'UserBundle\Entity\Usuario'
         ));
     }
 
@@ -31,7 +31,7 @@ class EmpresaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'empresabundle_empresa';
+        return 'userbundle_usuario';
     }
 
 

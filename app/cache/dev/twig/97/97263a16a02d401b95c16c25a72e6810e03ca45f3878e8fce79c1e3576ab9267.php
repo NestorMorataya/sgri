@@ -8,7 +8,7 @@ class __TwigTemplate_3eab4b174a41ce9351da2aaeb1f8a90b91207c55aa8e9def55fbc57fbf2
         parent::__construct($env);
 
         // line 1
-        $this->parent = $this->loadTemplate("base.html.twig", "empresa/new.html.twig", 1);
+        $this->parent = $this->loadTemplate("layout.html.twig", "empresa/new.html.twig", 1);
         $this->blocks = array(
             'body' => array($this, 'block_body'),
         );
@@ -16,58 +16,98 @@ class __TwigTemplate_3eab4b174a41ce9351da2aaeb1f8a90b91207c55aa8e9def55fbc57fbf2
 
     protected function doGetParent(array $context)
     {
-        return "base.html.twig";
+        return "layout.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_8848306a8590323bc58e1b099c17f5b5c96a083e003f625ca9068c0c460c94b1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_8848306a8590323bc58e1b099c17f5b5c96a083e003f625ca9068c0c460c94b1->enter($__internal_8848306a8590323bc58e1b099c17f5b5c96a083e003f625ca9068c0c460c94b1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "empresa/new.html.twig"));
+        $__internal_3952f0b25d2fe085cffddf309f6af70ddb420dd9c070654349976f7a491b60e5 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_3952f0b25d2fe085cffddf309f6af70ddb420dd9c070654349976f7a491b60e5->enter($__internal_3952f0b25d2fe085cffddf309f6af70ddb420dd9c070654349976f7a491b60e5_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "empresa/new.html.twig"));
 
         $this->parent->display($context, array_merge($this->blocks, $blocks));
         
-        $__internal_8848306a8590323bc58e1b099c17f5b5c96a083e003f625ca9068c0c460c94b1->leave($__internal_8848306a8590323bc58e1b099c17f5b5c96a083e003f625ca9068c0c460c94b1_prof);
+        $__internal_3952f0b25d2fe085cffddf309f6af70ddb420dd9c070654349976f7a491b60e5->leave($__internal_3952f0b25d2fe085cffddf309f6af70ddb420dd9c070654349976f7a491b60e5_prof);
 
     }
 
     // line 3
     public function block_body($context, array $blocks = array())
     {
-        $__internal_90b90e1d7afe6e22421ec91b33cf0da434b6b3dc903a23ce44a7af8a95149327 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_90b90e1d7afe6e22421ec91b33cf0da434b6b3dc903a23ce44a7af8a95149327->enter($__internal_90b90e1d7afe6e22421ec91b33cf0da434b6b3dc903a23ce44a7af8a95149327_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
+        $__internal_e3db68bb1c8405e069563fccc2c46073ab63b2b92a7f59995553c75ec1f91cca = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_e3db68bb1c8405e069563fccc2c46073ab63b2b92a7f59995553c75ec1f91cca->enter($__internal_e3db68bb1c8405e069563fccc2c46073ab63b2b92a7f59995553c75ec1f91cca_prof = new Twig_Profiler_Profile($this->getTemplateName(), "block", "body"));
 
         // line 4
-        echo "<div class=\"container\">
-        <h1>Empresa creacion</h1>
-        </br>
+        echo "<div class=\"container\" style=\"margin-top:30px;\">
+  <div class=\"row well\">
+   <div class=\"col-md-6\">
+       <div class=\"page-header\">
+            <h2>Registro de Empresa</h2> 
+       </div>
+        
 
     ";
-        // line 8
+        // line 12
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_start');
         echo "
-        ";
-        // line 9
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'widget');
+       <div class=\"form-group\">
+         ";
+        // line 14
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombre", array()), 'label');
         echo "
-        <input type=\"submit\" value=\"Guardar\" />
+         ";
+        // line 15
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "nombre", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+
+       </div>
+       <div class=\"form-group\">
+         ";
+        // line 19
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "objetivos", array()), 'label');
+        echo "
+         ";
+        // line 20
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "objetivos", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+       </div>
+       <div class=\"form-group\">
+         ";
+        // line 23
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "politicas", array()), 'label');
+        echo "
+         ";
+        // line 24
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "politicas", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+
+       </div>
+       <div class=\"form-group\">
+         ";
+        // line 28
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "alcances", array()), 'label');
+        echo "
+         ";
+        // line 29
+        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->searchAndRenderBlock($this->getAttribute((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), "alcances", array()), 'widget', array("attr" => array("class" => "form-control")));
+        echo "
+
+       </div>
+       
+        <button type=\"submit\" value=\"Guardar\" class=\"btn\"> Siguiente </button> 
     ";
-        // line 11
+        // line 34
         echo         $this->env->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')->renderer->renderBlock((isset($context["form"]) ? $context["form"] : $this->getContext($context, "form")), 'form_end');
         echo "
 
-    <ul>
-        <li>
-            <a href=\"";
-        // line 15
-        echo $this->env->getExtension('Symfony\Bridge\Twig\Extension\RoutingExtension')->getPath("empresa_index");
-        echo "\">Back to the list</a>
-        </li>
-    </ul>
+   </div>
+
+  </div>
 </div>
+
 
 ";
         
-        $__internal_90b90e1d7afe6e22421ec91b33cf0da434b6b3dc903a23ce44a7af8a95149327->leave($__internal_90b90e1d7afe6e22421ec91b33cf0da434b6b3dc903a23ce44a7af8a95149327_prof);
+        $__internal_e3db68bb1c8405e069563fccc2c46073ab63b2b92a7f59995553c75ec1f91cca->leave($__internal_e3db68bb1c8405e069563fccc2c46073ab63b2b92a7f59995553c75ec1f91cca_prof);
 
     }
 
@@ -83,7 +123,7 @@ class __TwigTemplate_3eab4b174a41ce9351da2aaeb1f8a90b91207c55aa8e9def55fbc57fbf2
 
     public function getDebugInfo()
     {
-        return array (  62 => 15,  55 => 11,  50 => 9,  46 => 8,  40 => 4,  34 => 3,  11 => 1,);
+        return array (  99 => 34,  91 => 29,  87 => 28,  80 => 24,  76 => 23,  70 => 20,  66 => 19,  59 => 15,  55 => 14,  50 => 12,  40 => 4,  34 => 3,  11 => 1,);
     }
 
     /** @deprecated since 1.27 (to be removed in 2.0). Use getSourceContext() instead */
@@ -96,24 +136,46 @@ class __TwigTemplate_3eab4b174a41ce9351da2aaeb1f8a90b91207c55aa8e9def55fbc57fbf2
 
     public function getSourceContext()
     {
-        return new Twig_Source("{% extends 'base.html.twig' %}
+        return new Twig_Source("{% extends 'layout.html.twig' %}
 
 {% block body %}
-<div class=\"container\">
-        <h1>Empresa creacion</h1>
-        </br>
+<div class=\"container\" style=\"margin-top:30px;\">
+  <div class=\"row well\">
+   <div class=\"col-md-6\">
+       <div class=\"page-header\">
+            <h2>Registro de Empresa</h2> 
+       </div>
+        
 
     {{ form_start(form) }}
-        {{ form_widget(form) }}
-        <input type=\"submit\" value=\"Guardar\" />
+       <div class=\"form-group\">
+         {{ form_label(form.nombre)}}
+         {{ form_widget(form.nombre, {'attr':{'class':'form-control'}}) }}
+
+       </div>
+       <div class=\"form-group\">
+         {{ form_label(form.objetivos)}}
+         {{ form_widget(form.objetivos, {'attr':{'class':'form-control'}}) }}
+       </div>
+       <div class=\"form-group\">
+         {{ form_label(form.politicas)}}
+         {{ form_widget(form.politicas, {'attr':{'class':'form-control'}}) }}
+
+       </div>
+       <div class=\"form-group\">
+         {{ form_label(form.alcances)}}
+         {{ form_widget(form.alcances, {'attr':{'class':'form-control'}}) }}
+
+       </div>
+       
+        <button type=\"submit\" value=\"Guardar\" class=\"btn\"> Siguiente </button> 
     {{ form_end(form) }}
 
-    <ul>
-        <li>
-            <a href=\"{{ path('empresa_index') }}\">Back to the list</a>
-        </li>
-    </ul>
+   </div>
+
+  </div>
 </div>
+
 
 {% endblock %}
 ", "empresa/new.html.twig", "C:\\wamp64\\www\\sgri\\app\\Resources\\views\\empresa\\new.html.twig");

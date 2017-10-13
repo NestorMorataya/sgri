@@ -4,10 +4,28 @@ security:
 
     # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
     providers:
-        in_memory:
-            memory: ~
+        our_db_provider:
+            entity:
+                class: UserBundle:Usuario
+                property: username
+
 
     firewalls:
+        default:
+            anonymous: ~
+            http_basic: ~
+            form_login:
+                login_path: /login
+                check_path: /login_check
+
+                username_parameter: _username
+                password_parameter: _password
+
+            logout:
+                path: /logout
+                target: /login
+
+
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
@@ -22,3 +40,7 @@ security:
 
             # https://symfony.com/doc/current/security/form_login_setup.html
             #form_login: ~
+    encoders:
+        UserBundle\Entity\Usuario:
+            algorithm: bcrypt
+            cost: 12

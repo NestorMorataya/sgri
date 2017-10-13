@@ -1,7 +1,7 @@
 <?php
 
 namespace EmpresaBundle\Controller;
-
+use UserBundle\Entity\Usuario;
 use EmpresaBundle\Entity\Empresa;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
@@ -40,6 +40,7 @@ class EmpresaController extends Controller
     public function newAction(Request $request)
     {
         $empresa = new Empresa();
+        $usuario = new Usuario();
         $form = $this->createForm('EmpresaBundle\Form\EmpresaType', $empresa);
         $form->handleRequest($request);
 
@@ -48,7 +49,9 @@ class EmpresaController extends Controller
             $em->persist($empresa);
             $em->flush();
 
-            return $this->redirectToRoute('empresa_show', array('id' => $empresa->getId()));
+
+
+            return $this->redirectToRoute('usuario_new', array('id' => $empresa->getId()));
         }
 
         return $this->render('empresa/new.html.twig', array(

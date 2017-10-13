@@ -100,6 +100,68 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        if (0 === strpos($pathinfo, '/usuario')) {
+            // usuario_index
+            if ('/usuario' === rtrim($pathinfo, '/')) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_usuario_index;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'usuario_index');
+                }
+
+                return array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::indexAction',  '_route' => 'usuario_index',);
+            }
+            not_usuario_index:
+
+            // usuario_new
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/new$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_usuario_new;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_new')), array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::newAction',));
+            }
+            not_usuario_new:
+
+            // usuario_show
+            if (preg_match('#^/usuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_usuario_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_show')), array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::showAction',));
+            }
+            not_usuario_show:
+
+            // usuario_edit
+            if (preg_match('#^/usuario/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_usuario_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_edit')), array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::editAction',));
+            }
+            not_usuario_edit:
+
+            // usuario_delete
+            if (preg_match('#^/usuario/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_usuario_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'usuario_delete')), array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::deleteAction',));
+            }
+            not_usuario_delete:
+
+        }
+
         if (0 === strpos($pathinfo, '/empresa')) {
             // empresa_index
             if ('/empresa' === rtrim($pathinfo, '/')) {
@@ -162,13 +224,37 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
-        // user_homepage
-        if ('/user' === rtrim($pathinfo, '/')) {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', 'user_homepage');
+        if (0 === strpos($pathinfo, '/user')) {
+            // user_homepage
+            if ('/user' === rtrim($pathinfo, '/')) {
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'user_homepage');
+                }
+
+                return array (  '_controller' => 'UserBundle\\Controller\\UsuarioController::homeAction',  '_route' => 'user_homepage',);
             }
 
-            return array (  '_controller' => 'UserBundle\\Controller\\DefaultController::indexAction',  '_route' => 'user_homepage',);
+            if (0 === strpos($pathinfo, '/user/log')) {
+                if (0 === strpos($pathinfo, '/user/login')) {
+                    // user_login
+                    if ('/user/login' === $pathinfo) {
+                        return array (  '_controller' => 'UserBundle\\Controller\\SecurityController::loginAction',  '_route' => 'user_login',);
+                    }
+
+                    // user_login_check
+                    if ('/user/login_check' === $pathinfo) {
+                        return array (  '_controller' => 'UserBundle\\Controller\\SecurityController::loginCheckAction',  '_route' => 'user_login_check',);
+                    }
+
+                }
+
+                // user_logout
+                if ('/user/logout' === $pathinfo) {
+                    return array (  '_controller' => 'UserBundle:Security:',  '_route' => 'user_logout',);
+                }
+
+            }
+
         }
 
         // empresa_homepage
@@ -178,6 +264,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             return array (  '_controller' => 'EmpresaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'empresa_homepage',);
+        }
+
+        // login_check
+        if ('/login_check' === $pathinfo) {
+            return array('_route' => 'login_check');
         }
 
         // homepage

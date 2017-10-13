@@ -359,14 +359,4 @@ class Usuario implements AdvancedUserInterface, \Serializable
     {
         return true;
     }
-
-    /**
-     * Get role
-     *
-     * @return string 
-     */
-    public function getRole()
-    {
-        return $this->role;
-    }
 }
