@@ -1,0 +1,24 @@
+activo_index:
+    path:     /
+    defaults: { _controller: "ActivoBundle:activo:index" }
+    methods:  GET
+
+activo_show:
+    path:     /{id}/show
+    defaults: { _controller: "ActivoBundle:activo:show" }
+    methods:  GET
+
+activo_new:
+    path:     /new
+    defaults: { _controller: "ActivoBundle:activo:new" }
+    methods:  [GET, POST]
+
+activo_edit:
+    path:     /{id}/edit
+    defaults: { _controller: "ActivoBundle:activo:edit" }
+    methods:  [GET, POST]
+
+activo_delete:
+    path:     /{id}/delete
+    defaults: { _controller: "ActivoBundle:activo:delete" }
+    methods:  DELETE

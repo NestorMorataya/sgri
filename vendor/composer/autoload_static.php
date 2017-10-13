@@ -77,6 +77,7 @@ class ComposerStaticInit50979c99cef91ca9bce7b93af5d4c25d
         'A' => 
         array (
             'AppBundle\\' => 10,
+            'ActivoBundle\\' => 13,
         ),
     );
 
@@ -196,6 +197,10 @@ class ComposerStaticInit50979c99cef91ca9bce7b93af5d4c25d
         'AppBundle\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/AppBundle',
+        ),
+        'ActivoBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/ActivoBundle',
         ),
     );
 

@@ -100,6 +100,67 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        if (0 === strpos($pathinfo, '/activo')) {
+            // activo_homepage
+            if ('/activo' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::indexAction',  '_route' => 'activo_homepage',);
+            }
+
+            // activo_new
+            if ('/activo/new' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::newAction',  '_route' => 'activo_new',);
+            }
+
+            // activo_index
+            if ('/activo/index' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::indexAction',  '_route' => 'activo_index',);
+            }
+
+            // activo_edit
+            if ('/activo/edit' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::editAction',  '_route' => 'activo_edit',);
+            }
+
+            // activo_show
+            if ('/activo/show' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::showAction',  '_route' => 'activo_show',);
+            }
+
+            // activo_delete
+            if ('/activo/delete' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::deleteAction',  '_route' => 'activo_delete',);
+            }
+
+        }
+
+        if (0 === strpos($pathinfo, '/categoria')) {
+            // categoria_homepage
+            if ('/categoria' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_homepage',);
+            }
+
+            // categoria_new
+            if ('/categoria/new' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::newAction',  '_route' => 'categoria_new',);
+            }
+
+            // categoria_edit
+            if ('/categoria/edit' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::editAction',  '_route' => 'categoria_edit',);
+            }
+
+            // categoria_show
+            if ('/categoria/show' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::showAction',  '_route' => 'categoria_show',);
+            }
+
+            // categoria_index
+            if ('/categoria/index' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_index',);
+            }
+
+        }
+
         if (0 === strpos($pathinfo, '/usuario')) {
             // usuario_index
             if ('/usuario' === rtrim($pathinfo, '/')) {
@@ -263,7 +324,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->redirect($pathinfo.'/', 'empresa_homepage');
             }
 
-            return array (  '_controller' => 'EmpresaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'empresa_homepage',);
+            return array (  '_controller' => 'EmpresaBundle:Home:home',  '_route' => 'empresa_homepage',);
         }
 
         // login_check

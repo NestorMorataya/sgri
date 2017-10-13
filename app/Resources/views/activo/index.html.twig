@@ -1,0 +1,51 @@
+{% extends 'vistas.html.twig' %}
+
+{% block body %}
+    <h1>Activos</h1>
+<CENTER><H1>ACTIVOS DE LA EMPRESA</H1></CENTER>
+<hr>
+<center>
+    <table border="3" align="center" cellpadding=”8″ cellspacing=”8″ >
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
+                <th>Unidad Responsable</th>
+                <th>Persona Responsable</th>
+                <th>Ubicacion</th>
+                <th>Cantidad</th>
+                
+            </tr>
+        </thead>
+        <tbody>
+        {% for activo in activos %}
+            <tr>
+                <td><a href="{{ path('activo_show', { 'id': activo.id }) }}">{{ activo.id }}</a></td>
+                <td>{{ activo.nombre }}</td>
+                <td>{{ activo.descripcion }}</td>
+                <td>{{ activo.unidadResponsable }}</td>
+                <td>{{ activo.personaResponsable }}</td>
+                <td>{{ activo.ubicacion }}</td>
+                <td>{{ activo.cantidad }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('activo_show', { 'id': activo.id }) }}">Ver</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('activo_edit', { 'id': activo.id }) }}">Editar</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</center>
+    <ul>
+        <li>
+            <a href="{{ path('activo_new') }}">Crear un nuevo activo</a>
+        </li>
+    </ul>
+{% endblock %}
