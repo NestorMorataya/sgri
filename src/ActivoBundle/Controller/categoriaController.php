@@ -7,16 +7,20 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
- * Categorium controller.
+ * categoria controller.
  *
+ * @Route("categoria")
  */
 class categoriaController extends Controller
 {
     /**
-     * Lists all categorium entities.
+     * Lists all categoria entities.
      *
+     * @Route("/", name="categoria_index")
+     * @Method("GET")
      */
     public function indexAction()
     {
@@ -29,9 +33,11 @@ class categoriaController extends Controller
         ));
     }
 
-    /**
-     * Creates a new categorium entity.
+   /**
+     * Creates a new categoria entity.
      *
+     * @Route("/new", name="categoria_new")
+     * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
     {
@@ -53,9 +59,11 @@ class categoriaController extends Controller
         ));
     }
 
-    /**
-     * Finds and displays a categorium entity.
+ /**
+     * Finds and displays a categoria entity.
      *
+     * @Route("/{id}", name="categoria_show")
+     * @Method("GET")
      */
     public function showAction(categoria $categoria)
     {
@@ -66,10 +74,11 @@ class categoriaController extends Controller
             'delete_form' => $deleteForm->createView(),
         ));
     }
-
-    /**
-     * Displays a form to edit an existing categorium entity.
+ /**
+     * Displays a form to edit an existing categoria entity.
      *
+     * @Route("/{id}", name="categoria_edit")
+     * @Method({"GET", "POST"})
      */
     public function editAction(Request $request, categoria $categoria)
     {
@@ -90,9 +99,12 @@ class categoriaController extends Controller
         ));
     }
 
+
     /**
-     * Deletes a categorium entity.
+     * Deletes a categoria entity.
      *
+     * @Route("/{id}", name="categoria_delete")
+     * @Method("DELETE")
      */
     public function deleteAction(Request $request, categoria $categoria)
     {
@@ -111,7 +123,7 @@ class categoriaController extends Controller
     /**
      * Creates a form to delete a categorium entity.
      *
-     * @param categoria $categorium The categorium entity
+     * @param categoria $categorium The categoria entity
      *
      * @return \Symfony\Component\Form\Form The form
      */

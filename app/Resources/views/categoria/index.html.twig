@@ -10,7 +10,7 @@
     <table border="5">
         <thead>
             <tr>
-                <th>Id</th>
+                <th>Código</th>
                 <th>Nombre</th>
             </tr>
         </thead>
@@ -19,15 +19,7 @@
             <tr>
                 <td><a href="{{ path('categoria_show', { 'id': categorium.id }) }}">{{ categorium.id }}</a></td>
                 <td>{{ categorium.nombre }}</td>
-                <td>
-                    <ul>
-                        <li>
-                            <a href="{{ path('categoria_show', { 'id': categorium.id }) }}">show</a>
-                        </li>
-                        <li>
-                            <a href="{{ path('categoria_edit', { 'id': categorium.id }) }}">edit</a>
-                        </li>
-                    </ul>
+              
                 </td>
             </tr>
         {% endfor %}

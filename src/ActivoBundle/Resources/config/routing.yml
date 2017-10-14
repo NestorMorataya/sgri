@@ -2,7 +2,7 @@
 
 activo_homepage:
     path:     /activo
-    defaults: { _controller: ActivoBundle:activo:index }
+    defaults: { _controller: ActivoBundle:Default:index }
 
 activo_new:
     path:     /activo/new
@@ -26,7 +26,7 @@ activo_delete:
 
 categoria_homepage:
     path:     /categoria
-    defaults: { _controller: ActivoBundle:categoria:index }
+    defaults: { _controller: ActivoBundle:Menu:index }
 
 categoria_new:
     path:     /categoria/new
@@ -43,6 +43,10 @@ categoria_show:
 categoria_index:
     path:     /categoria/index
     defaults: { _controller: ActivoBundle:categoria:index }
+
+categoria_delete:
+    path:     /categoria/delete
+    defaults: { _controller: ActivoBundle:categoria:delete }
 
 
 

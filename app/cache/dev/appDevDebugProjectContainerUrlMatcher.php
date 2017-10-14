@@ -103,7 +103,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         if (0 === strpos($pathinfo, '/activo')) {
             // activo_homepage
             if ('/activo' === $pathinfo) {
-                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::indexAction',  '_route' => 'activo_homepage',);
+                return array (  '_controller' => 'ActivoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'activo_homepage',);
             }
 
             // activo_new
@@ -136,7 +136,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         if (0 === strpos($pathinfo, '/categoria')) {
             // categoria_homepage
             if ('/categoria' === $pathinfo) {
-                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_homepage',);
+                return array (  '_controller' => 'ActivoBundle\\Controller\\MenuController::indexAction',  '_route' => 'categoria_homepage',);
             }
 
             // categoria_new
@@ -157,6 +157,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             // categoria_index
             if ('/categoria/index' === $pathinfo) {
                 return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_index',);
+            }
+
+            // categoria_delete
+            if ('/categoria/delete' === $pathinfo) {
+                return array (  '_controller' => 'ActivoBundle\\Controller\\categoriaController::deleteAction',  '_route' => 'categoria_delete',);
             }
 
         }

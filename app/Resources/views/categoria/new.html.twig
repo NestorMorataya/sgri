@@ -10,19 +10,17 @@
    <div class="col-md-6">
        <div class="page-header">
             <h2>NUEVA CATEGORÍA</h2> 
-       </div>
-
-    <hr>
     {{ form_start(form) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Guardar" />
+        <hr>
+        <input type="submit" value="Agregar" />
     {{ form_end(form) }}
 </center>
 
 <hr>
     <ul>
         <li>
-            <a href="{{ path('categoria_index') }}">Regresar</a>
+            <a href="{{ path('categoria_homepage') }}">Regresar</a>
         </li>
     </ul>
 {% endblock %}

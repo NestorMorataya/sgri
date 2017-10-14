@@ -1,8 +1,9 @@
 <?php
 
 namespace ActivoBundle\Entity;
-
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\AdvancedUserInterface;
+
 
 /**
  * activo
@@ -11,44 +12,40 @@ class activo
 {
     /**
      * @var int
+     *
      */
     private $id;
     /**
-     * @var string
-     */
+    * @var string $codigo
+    *
+    * @ORM\Column(name="codigo", type="string", length=50)
+    * 
+    */
     private $codigo;
-
     /**
      * @var string
      */
     private $nombre;
-
     /**
      * @var string
      */
     private $descripcion;
-
     /**
      * @var string
      */
     private $unidadResponsable;
-
     /**
      * @var string
      */
     private $personaResponsable;
-
     /**
      * @var string
      */
     private $ubicacion;
-
     /**
      * @var int
      */
     private $cantidad;
-
-
     /**
      * Get id
      *
@@ -58,7 +55,6 @@ class activo
     {
         return $this->id;
     }
-
     /**
      * Set codigo
      *
@@ -77,13 +73,11 @@ class activo
      *
      * @return string 
      */
+
     public function getCodigo()
     {
         return $this->codigo;
     }
-
-
-
 
     /**
      * Set nombre

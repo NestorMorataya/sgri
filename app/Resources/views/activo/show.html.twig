@@ -10,7 +10,7 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ activo.id }}</td>
+                <td>{{ activo.codigo }}</td>
             </tr>
             <tr>
                 <th>Nombre</th>
@@ -41,7 +41,7 @@
 
     <ul>
         <li>
-            <a href="{{ path('activo_index') }}">Regresar</a>
+            <a href="{{ path('activo_homepage') }}">Regresar</a>
         </li>
         <li>
             <a href="{{ path('activo_edit', { 'id': activo.id }) }}">Editar</a>

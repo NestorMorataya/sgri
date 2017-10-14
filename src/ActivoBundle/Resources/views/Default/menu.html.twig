@@ -1,0 +1,32 @@
+{% extends 'vistas.html.twig' %}
+
+{% block body %}
+    <h1>Activos</h1>
+<CENTER><H1>GESTIÓN DE ACTIVOS</H1></CENTER>
+<hr>
+
+<ul>
+    <li>
+        <a href="{{ path('user_homepage') }}">Regresar</a>
+    </li>
+</ul>
+<center>
+<div class="row">
+<ul>
+    <li>
+        <a href="{{ path('activo_new') }}">Crear un nuevo activo</a>
+    </li>
+    <li>
+        <a href="{{ path('activo_edit') }}">Editar activo</a>
+    </li>
+    <li>
+        <a href="{{ path('activo_delete') }}">Eliminar activo</a>
+    </li>
+    <li>
+        <a href="{{ path('activo_index') }}">Ver activos</a>
+    </li>
+
+</ul>
+</div >
+</center>
+{% endblock %}

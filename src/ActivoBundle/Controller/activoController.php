@@ -7,6 +7,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
 
 /**
  * activo controller.
@@ -32,10 +33,11 @@ class activoController extends Controller
         ));
     }
 
+
     /**
      * Creates a new activo entity.
      *
-     * @Route("/{id}/new", name="activo_new")
+     * @Route("/new", name="activo_new")
      * @Method({"GET", "POST"})
      */
     public function newAction(Request $request)
@@ -49,7 +51,7 @@ class activoController extends Controller
             $em->persist($activo);
             $em->flush();
 
-            return $this->redirectToRoute('activo_show', array('id' => $activo->getId()));
+            return $this->redirectToRoute('activo_new', array('id' => $activo->getId()));
         }
 
         return $this->render('activo/new.html.twig', array(
@@ -57,11 +59,10 @@ class activoController extends Controller
             'form' => $form->createView(),
         ));
     }
-
-    /**
+ /**
      * Finds and displays a activo entity.
      *
-     * @Route("/{id}", name="activo_show")
+     * @Route("/{activo_id}", name="activo_show")
      * @Method("GET")
      */
     public function showAction(activo $activo)

@@ -104,10 +104,10 @@
     <parameter key="kernel.charset">UTF-8</parameter>
     <parameter key="kernel.container_class">appDevDebugProjectContainer</parameter>
     <parameter key="database_host">localhost</parameter>
-    <parameter key="database_port">5432</parameter>
+    <parameter key="database_port">null</parameter>
     <parameter key="database_name">sgri</parameter>
-    <parameter key="database_user">too</parameter>
-    <parameter key="database_password">1234</parameter>
+    <parameter key="database_user">postgres</parameter>
+    <parameter key="database_password">4321</parameter>
     <parameter key="mailer_transport">smtp</parameter>
     <parameter key="mailer_host">127.0.0.1</parameter>
     <parameter key="mailer_user">null</parameter>
@@ -1836,12 +1836,12 @@
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>59e128ecbc2083.36670260</argument>
+            <argument>59e2887ba89e95.15821887</argument>
           </service>
         </argument>
         <argument type="service">
           <service class="Symfony\Component\Security\Core\Authentication\Provider\AnonymousAuthenticationProvider" public="false">
-            <argument>59e128ecbc2083.36670260</argument>
+            <argument>59e2887ba89e95.15821887</argument>
           </service>
         </argument>
       </argument>
@@ -2086,7 +2086,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>59e128ecbc2083.36670260</argument>
+            <argument>59e2887ba89e95.15821887</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2135,7 +2135,7 @@
         <argument type="service">
           <service class="Symfony\Component\Security\Http\Firewall\AnonymousAuthenticationListener" public="false">
             <argument type="service" id="security.token_storage"/>
-            <argument>59e128ecbc2083.36670260</argument>
+            <argument>59e2887ba89e95.15821887</argument>
             <argument type="service" id="monolog.logger.security" on-invalid="null"/>
             <argument type="service" id="security.authentication.manager"/>
           </service>
@@ -2446,10 +2446,10 @@
       <argument type="collection">
         <argument key="driver">pdo_pgsql</argument>
         <argument key="host">localhost</argument>
-        <argument key="port">5432</argument>
+        <argument key="port">null</argument>
         <argument key="dbname">sgri</argument>
-        <argument key="user">too</argument>
-        <argument key="password">1234</argument>
+        <argument key="user">postgres</argument>
+        <argument key="password">4321</argument>
         <argument key="charset">UTF8</argument>
         <argument key="driverOptions" type="collection"/>
         <argument key="defaultTableOptions" type="collection"/>
