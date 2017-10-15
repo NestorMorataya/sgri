@@ -1,51 +1,76 @@
 <?php
 
 namespace ActivoBundle\Entity;
-use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * activo
+ *
+ * @ORM\Table(name="activo")
+ * @ORM\Entity(repositoryClass="ActivoBundle\Repository\activoRepository")
  */
 class activo
 {
     /**
      * @var int
      *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
-    /**
-    * @var string $codigo
-    *
-    * @ORM\Column(name="codigo", type="string", length=50)
-    * 
-    */
-    private $codigo;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="codigo", type="string", length=50)
+     */
+    private $codigo;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="nombre", type="string", length=50)
      */
     private $nombre;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="descripcion", type="string", length=50)
      */
     private $descripcion;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="unidad_responsable", type="string", length=50)
      */
     private $unidadResponsable;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="persona_responsable", type="string", length=50)
      */
     private $personaResponsable;
+
     /**
      * @var string
+     *
+     * @ORM\Column(name="ubicacion", type="string", length=50)
      */
     private $ubicacion;
+
     /**
      * @var int
+     *
+     * @ORM\Column(name="cantidad", type="integer")
      */
     private $cantidad;
+
+
     /**
      * Get id
      *
@@ -55,11 +80,12 @@ class activo
     {
         return $this->id;
     }
+
     /**
      * Set codigo
      *
      * @param string $codigo
-     * @return codigo
+     * @return activo
      */
     public function setCodigo($codigo)
     {
@@ -73,7 +99,6 @@ class activo
      *
      * @return string 
      */
-
     public function getCodigo()
     {
         return $this->codigo;

@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <h1>ACTIVO</h1>
 <hr>
-<H1>ACTIVOS</H1>
+<hr>
+<center>
+    <h2>EDITAR ACTIVOS</h2>
 
-
-    <table>
+    <table border=2>
         <tbody>
+           
             <tr>
-                <th>Id</th>
+                <th>Codigo</th>
                 <td>{{ activo.codigo }}</td>
             </tr>
             <tr>
@@ -38,18 +39,23 @@
             </tr>
         </tbody>
     </table>
+    <ul>
+    <hr>
+    <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Borrar">
+            {{ form_end(delete_form) }}
+        </li>
+        </ul>
+</center>
 
     <ul>
         <li>
-            <a href="{{ path('activo_homepage') }}">Regresar</a>
+            <a href="{{ path('activo_index') }}">Regresar</a>
         </li>
         <li>
             <a href="{{ path('activo_edit', { 'id': activo.id }) }}">Editar</a>
         </li>
-        <li>
-            {{ form_start(delete_form) }}
-                <input type="submit" value="Delete">
-            {{ form_end(delete_form) }}
-        </li>
+    
     </ul>
 {% endblock %}

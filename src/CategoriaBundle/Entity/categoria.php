@@ -1,29 +1,33 @@
 <?php
 
-namespace ActivoBundle\Entity;
+namespace CategoriaBundle\Entity;
+
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Security\Core\User\AdvancedUserInterface;
 
 /**
  * categoria
+ *
  * @ORM\Table(name="categoria")
- * @ORM\Entity(repositoryClass="CategoriaBundle\Repository\CategoriaRepository")
+ * @ORM\Entity(repositoryClass="CategoriaBundle\Repository\categoriaRepository")
  */
 class categoria
 {
-     /**
+    /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
-     * @ORM\Column(type="integer")
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
-     * @ORM\Column(type="string", length=50)
+     *
+     * @ORM\Column(name="nombre", type="string", length=50)
      */
     private $nombre;
+
 
     /**
      * Get id

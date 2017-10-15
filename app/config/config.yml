@@ -5,6 +5,8 @@ imports:
     - { resource: "@EmpresaBundle/Resources/config/services.yml" }
     - { resource: "@UserBundle/Resources/config/services.yml" }
     - { resource: "@ActivoBundle/Resources/config/services.yml" }
+    - { resource: "@CategoriaBundle/Resources/config/services.yml" }
+ 
 
 
 

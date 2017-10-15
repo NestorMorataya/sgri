@@ -1,6 +1,6 @@
 <?php
 
-namespace ActivoBundle\Tests\Controller;
+namespace CategoriaBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 
@@ -19,7 +19,7 @@ class categoriaControllerTest extends WebTestCase
 
         // Fill in the form and submit it
         $form = $crawler->selectButton('Create')->form(array(
-            'activobundle_categoria[field_name]'  => 'Test',
+            'categoriabundle_categoria[field_name]'  => 'Test',
             // ... other fields to fill
         ));
 
@@ -33,7 +33,7 @@ class categoriaControllerTest extends WebTestCase
         $crawler = $client->click($crawler->selectLink('Edit')->link());
 
         $form = $crawler->selectButton('Update')->form(array(
-            'activobundle_categoria[field_name]'  => 'Foo',
+            'categoriabundle_categoria[field_name]'  => 'Foo',
             // ... other fields to fill
         ));
 

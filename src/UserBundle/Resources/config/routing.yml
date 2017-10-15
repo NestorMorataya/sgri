@@ -2,11 +2,9 @@ user_homepage:
     path:     /
     defaults: { _controller:UserBundle:Usuario:home }
 
-
 user_login:
     path: /login 
     defaults: { _controller:UserBundle:Security:login }
-
 
 user_login_check:
     path: /login_check 

@@ -5,18 +5,16 @@ namespace ActivoBundle\Controller;
 use ActivoBundle\Entity\activo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Method;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\ParamConverter;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;use Symfony\Component\HttpFoundation\Request;
 
 /**
- * activo controller.
+ * Activo controller.
  *
  * @Route("activo")
  */
 class activoController extends Controller
 {
-  /**
+    /**
      * Lists all activo entities.
      *
      * @Route("/", name="activo_index")
@@ -32,7 +30,6 @@ class activoController extends Controller
             'activos' => $activos,
         ));
     }
-
 
     /**
      * Creates a new activo entity.
@@ -51,7 +48,7 @@ class activoController extends Controller
             $em->persist($activo);
             $em->flush();
 
-            return $this->redirectToRoute('activo_new', array('id' => $activo->getId()));
+            return $this->redirectToRoute('activo_show', array('id' => $activo->getId()));
         }
 
         return $this->render('activo/new.html.twig', array(
@@ -59,10 +56,11 @@ class activoController extends Controller
             'form' => $form->createView(),
         ));
     }
- /**
+
+    /**
      * Finds and displays a activo entity.
      *
-     * @Route("/{activo_id}", name="activo_show")
+     * @Route("/{id}", name="activo_show")
      * @Method("GET")
      */
     public function showAction(activo $activo)
@@ -100,7 +98,7 @@ class activoController extends Controller
         ));
     }
 
-     /**
+    /**
      * Deletes a activo entity.
      *
      * @Route("/{id}", name="activo_delete")
@@ -134,5 +132,15 @@ class activoController extends Controller
             ->setMethod('DELETE')
             ->getForm()
         ;
+    }
+       /**
+     * Lists all activo entities.
+     *
+     * @Route("/", name="menu_activo")
+     * @Method("GET")
+     */
+ public function menuAction()
+    {
+        return $this->render('menu/menu.html.twig');
     }
 }

@@ -19,6 +19,7 @@ class AppKernel extends Kernel
             new EmpresaBundle\EmpresaBundle(),
             new UserBundle\UserBundle(),
             new ActivoBundle\ActivoBundle(),
+            new CategoriaBundle\CategoriaBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'), true)) {

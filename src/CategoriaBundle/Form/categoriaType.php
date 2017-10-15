@@ -1,6 +1,6 @@
 <?php
 
-namespace ActivoBundle\Form;
+namespace CategoriaBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -22,7 +22,7 @@ class categoriaType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'ActivoBundle\Entity\categoria'
+            'data_class' => 'CategoriaBundle\Entity\categoria'
         ));
     }
 
@@ -31,7 +31,7 @@ class categoriaType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'activobundle_categoria';
+        return 'categoriabundle_categoria';
     }
 
 

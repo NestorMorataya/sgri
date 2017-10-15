@@ -1,17 +1,19 @@
-{% extends 'vistas.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block body %}
-<center>
-   <h1>EDITAR ACTIVO</h1>
+<br>
+<br>
+    <h1>EDITAR ACTIVO</h1>
+
 
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
         <input type="submit" value="Editar" />
     {{ form_end(edit_form) }}
-</center>
+
     <ul>
         <li>
-            <a href="{{ path('activo_homepage') }}">Regresar</a>
+            <a href="{{ path('activo_index') }}">Regresar</a>
         </li>
         <li>
             {{ form_start(delete_form) }}

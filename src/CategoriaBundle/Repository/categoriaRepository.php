@@ -1,6 +1,6 @@
 <?php
 
-namespace ActivoBundle\Repository;
+namespace CategoriaBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
