@@ -17,7 +17,7 @@ class activoController extends Controller
     /**
      * Lists all activo entities.
      *
-     * @Route("/", name="activo_index")
+     * @Route("/index", name="activo_index")
      * @Method("GET")
      */
     public function indexAction()

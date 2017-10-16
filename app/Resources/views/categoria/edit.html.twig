@@ -1,22 +1,35 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/botones.css')}}">
+{% endblock %}
 {% block body %}
 
 <hr>
 <hr>
 <center>
-    <h2>EDITAR CATEGORIA</h2>
-
+<div class="container" style="margin-top:30px;">
+  <div class="row well">
+   <div class="col-md-6">
+       <h2>EDITAR CATEGORÍA</h2>
+       <div class="page-header">
+       <br>
     {{ form_start(edit_form) }}
         {{ form_widget(edit_form) }}
-        <input type="submit" value="Editar" />
+        <br>
+        <center>
+        <button class="button">Editar</button>
+        </center>
     {{ form_end(edit_form) }}
 
 <br>
      {{ form_start(delete_form) }}
-                <input type="submit" value="Eliminar">
+     <center>
+     <button class="button">Eliminar</button>
+     </center>
      {{ form_end(delete_form) }}
-
+</div>
+</div>
+</div>
 
 </center>
     <ul>

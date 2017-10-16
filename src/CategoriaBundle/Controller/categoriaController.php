@@ -17,7 +17,7 @@ class categoriaController extends Controller
     /**
      * Lists all categoria entities.
      *
-     * @Route("/", name="categoria_index")
+     * @Route("/index", name="categoria_index")
      * @Method("GET")
      */
     public function indexAction()

@@ -1,7 +1,7 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/panelVertical.css')}}">    
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/panelVertical.css')}}">
 {% endblock %}
 
 
@@ -14,20 +14,13 @@
    		</div>
    </div>
 
-   <div class="vertical-menu">
+<div class="vertical-menu">
    		<div class="page-header">
-   			<h3>Gestion</h3>
+   			<h3>Gestión</h3>
    		</div>
-	
+
       <a href="{{ path('menu_activo') }}">Gestionar Activos</a>
-   
-   
+
       <a href="{{ path('menu_categoria') }}">Gestionar Categorías</a>
-   
-   
-
-
-
-
 </div>
 {% endblock %}

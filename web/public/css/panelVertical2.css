@@ -1,9 +1,9 @@
 .vertical-menu {
-    width: 900px; /* Set a width if you like */
+    width: 250px; /* Set a width if you like */
 }
 
 .vertical-menu a {
-    background-color: #eee; /* Grey background color */
+    background-color: #D8D8D8; /* Grey background color */
     color: black; /* Black text color */
     display: block; /* Make the links appear below each other */
     padding: 20px; /* Add some padding */
@@ -11,11 +11,11 @@
 }
 
 .vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
+    background-color: #D8D8D8; /* Dark grey background on mouse-over */
 }
 
 .vertical-menu a.active {
-    background-color: #4CAF50; /* Add a green color to the "active/current" link */
+    background-color: green; /* Add a green color to the "active/current" link */
     color: white;
 }
 

@@ -1,5 +1,7 @@
 {% extends 'base.html.twig' %}
-
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/tablas.css')}}">
+{% endblock %}
 {% block body %}
 
 
@@ -8,14 +10,14 @@
 <center>
     <h2>LISTADO DE CATEGORÍAS</h2>
 
-    <table border=4>
+    <table>
         <thead>
             <tr>
                 <th>Código</th>
                 <th>Nombre</th>
                 <th></th>
                 <th></th>
-             
+
             </tr>
         </thead>
         <tbody>
@@ -23,10 +25,10 @@
             <tr>
                 <td><a href="{{ path('categoria_show', { 'id': categoria.id }) }}">{{ categoria.id }}</a></td>
                 <td>{{ categoria.nombre }}</td>
-                
+
                 <td> <a href="{{ path('categoria_show', { 'id': categoria.id }) }}">Mostrar</a></td>
                 <td><a href="{{ path('categoria_edit', { 'id': categoria.id }) }}">Editar</a></td>
-   
+
         {% endfor %}
 </table>
         </tbody>

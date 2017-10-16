@@ -300,14 +300,10 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/categoria')) {
             // categoria_index
-            if ('/categoria' === rtrim($pathinfo, '/')) {
+            if ('/categoria/index' === $pathinfo) {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
                     goto not_categoria_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'categoria_index');
                 }
 
                 return array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_index',);
@@ -377,14 +373,10 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         if (0 === strpos($pathinfo, '/activo')) {
             // activo_index
-            if ('/activo' === rtrim($pathinfo, '/')) {
+            if ('/activo/index' === $pathinfo) {
                 if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
                     $allow = array_merge($allow, array('GET', 'HEAD'));
                     goto not_activo_index;
-                }
-
-                if (substr($pathinfo, -1) !== '/') {
-                    return $this->redirect($pathinfo.'/', 'activo_index');
                 }
 
                 return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::indexAction',  '_route' => 'activo_index',);
