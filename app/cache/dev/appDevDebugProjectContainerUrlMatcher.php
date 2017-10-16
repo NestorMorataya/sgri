@@ -100,6 +100,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // categoria_default_index
+        if ('/categoria' === rtrim($pathinfo, '/')) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'categoria_default_index');
+            }
+
+            return array (  '_controller' => 'CategoriaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'categoria_default_index',);
+        }
+
+        // activo_default_index
+        if ('/activo' === rtrim($pathinfo, '/')) {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'activo_default_index');
+            }
+
+            return array (  '_controller' => 'ActivoBundle\\Controller\\DefaultController::indexAction',  '_route' => 'activo_default_index',);
+        }
+
         if (0 === strpos($pathinfo, '/usuario')) {
             // usuario_index
             if ('/usuario' === rtrim($pathinfo, '/')) {
@@ -263,7 +281,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return $this->redirect($pathinfo.'/', 'empresa_homepage');
             }
 
-            return array (  '_controller' => 'EmpresaBundle\\Controller\\DefaultController::indexAction',  '_route' => 'empresa_homepage',);
+            return array (  '_controller' => 'EmpresaBundle:Home:home',  '_route' => 'empresa_homepage',);
         }
 
         // login_check
@@ -278,6 +296,152 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             }
 
             return array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
+        }
+
+        if (0 === strpos($pathinfo, '/categoria')) {
+            // categoria_index
+            if ('/categoria/index' === $pathinfo) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_categoria_index;
+                }
+
+                return array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::indexAction',  '_route' => 'categoria_index',);
+            }
+            not_categoria_index:
+
+            // categoria_new
+            if ('/categoria/new' === $pathinfo) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_categoria_new;
+                }
+
+                return array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::newAction',  '_route' => 'categoria_new',);
+            }
+            not_categoria_new:
+
+            // categoria_show
+            if (preg_match('#^/categoria/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_categoria_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_show')), array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::showAction',));
+            }
+            not_categoria_show:
+
+            // categoria_edit
+            if (preg_match('#^/categoria/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_categoria_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_edit')), array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::editAction',));
+            }
+            not_categoria_edit:
+
+            // categoria_delete
+            if (preg_match('#^/categoria/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_categoria_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'categoria_delete')), array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::deleteAction',));
+            }
+            not_categoria_delete:
+
+            // menu_categoria
+            if ('/categoria' === rtrim($pathinfo, '/')) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_menu_categoria;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'menu_categoria');
+                }
+
+                return array (  '_controller' => 'CategoriaBundle\\Controller\\categoriaController::menuAction',  '_route' => 'menu_categoria',);
+            }
+            not_menu_categoria:
+
+        }
+
+        if (0 === strpos($pathinfo, '/activo')) {
+            // activo_index
+            if ('/activo/index' === $pathinfo) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_activo_index;
+                }
+
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::indexAction',  '_route' => 'activo_index',);
+            }
+            not_activo_index:
+
+            // activo_new
+            if ('/activo/new' === $pathinfo) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_activo_new;
+                }
+
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::newAction',  '_route' => 'activo_new',);
+            }
+            not_activo_new:
+
+            // activo_show
+            if (preg_match('#^/activo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_activo_show;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'activo_show')), array (  '_controller' => 'ActivoBundle\\Controller\\activoController::showAction',));
+            }
+            not_activo_show:
+
+            // activo_edit
+            if (preg_match('#^/activo/(?P<id>[^/]++)/edit$#s', $pathinfo, $matches)) {
+                if (!in_array($this->context->getMethod(), array('GET', 'POST', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'POST', 'HEAD'));
+                    goto not_activo_edit;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'activo_edit')), array (  '_controller' => 'ActivoBundle\\Controller\\activoController::editAction',));
+            }
+            not_activo_edit:
+
+            // activo_delete
+            if (preg_match('#^/activo/(?P<id>[^/]++)$#s', $pathinfo, $matches)) {
+                if ($this->context->getMethod() != 'DELETE') {
+                    $allow[] = 'DELETE';
+                    goto not_activo_delete;
+                }
+
+                return $this->mergeDefaults(array_replace($matches, array('_route' => 'activo_delete')), array (  '_controller' => 'ActivoBundle\\Controller\\activoController::deleteAction',));
+            }
+            not_activo_delete:
+
+            // menu_activo
+            if ('/activo' === rtrim($pathinfo, '/')) {
+                if (!in_array($this->context->getMethod(), array('GET', 'HEAD'))) {
+                    $allow = array_merge($allow, array('GET', 'HEAD'));
+                    goto not_menu_activo;
+                }
+
+                if (substr($pathinfo, -1) !== '/') {
+                    return $this->redirect($pathinfo.'/', 'menu_activo');
+                }
+
+                return array (  '_controller' => 'ActivoBundle\\Controller\\activoController::menuAction',  '_route' => 'menu_activo',);
+            }
+            not_menu_activo:
+
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();

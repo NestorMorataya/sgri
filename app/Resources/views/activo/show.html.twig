@@ -1,0 +1,71 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/botones.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{ asset('public/css/tabla2.css')}}">
+{% endblock %}
+{% block body %}
+<hr>
+<hr>
+<center>
+<div class="container" style="margin-top:30px;">
+  <div class="row well">
+   <div class="col-md-6">
+       <div class="page-header">
+    <h2>VER DATOS DE ACTIVOS</h2>
+
+    <table>
+        <tbody>
+
+            <tr>
+                <th>Codigo</th>
+                <td>{{ activo.codigo }}</td>
+            </tr>
+            <tr>
+                <th>Nombre</th>
+                <td>{{ activo.nombre }}</td>
+            </tr>
+            <tr>
+                <th>Descripcion</th>
+                <td>{{ activo.descripcion }}</td>
+            </tr>
+            <tr>
+                <th>Unidadresponsable</th>
+                <td>{{ activo.unidadResponsable }}</td>
+            </tr>
+            <tr>
+                <th>Personaresponsable</th>
+                <td>{{ activo.personaResponsable }}</td>
+            </tr>
+            <tr>
+                <th>Ubicacion</th>
+                <td>{{ activo.ubicacion }}</td>
+            </tr>
+            <tr>
+                <th>Cantidad</th>
+                <td>{{ activo.cantidad }}</td>
+            </tr>
+        </tbody>
+    </table>
+    </tD>
+    </td>
+    </td>
+    <ul>
+    <hr>
+    <li>
+            {{ form_start(delete_form) }}
+             <button class="button">Eliminar</button>
+            {{ form_end(delete_form) }}
+        </li>
+        </ul>
+</center>
+
+    <ul>
+        <li>
+            <a href="{{ path('activo_index') }}">Regresar</a>
+        </li>
+        <li>
+            <a href="{{ path('activo_edit', { 'id': activo.id }) }}">Editar</a>
+        </li>
+
+    </ul>
+{% endblock %}

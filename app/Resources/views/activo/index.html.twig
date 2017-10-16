@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/tablas.css')}}">
+{% endblock %}
+{% block body %}
+<hr>
+<br>
+<ul>
+    <li>
+        <a href="{{ path('menu_activo') }}">Regresar</a>
+    </li>
+</ul>
+<center>
+    <h2>ACTIVOS</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th> Código </th>
+                <th> Nombre </th>
+                <th> Descripción </th>
+                <th> Unidad Responsable </th>
+                <th> Persona Responsable </th>
+                <th> Ubicación</th>
+                <th> Cantidad </th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for activo in activos %}
+            <tr>
+                <td>{{ activo.codigo }}</td>
+                <td>{{ activo.nombre }}</td>
+                <td>{{ activo.descripcion }}</td>
+                <td>{{ activo.unidadResponsable }}</td>
+                <td>{{ activo.personaResponsable }}</td>
+                <td>{{ activo.ubicacion }}</td>
+                <td>{{ activo.cantidad }}</td>
+                <td><a href="{{ path('activo_show', { 'id': activo.id }) }}">Mostrar</a></td>
+                <td><a href="{{ path('activo_edit', { 'id': activo.id }) }}">Editar</a></td>
+
+            </tr>
+        {% endfor %}
+      </tbody>
+  </table>
+</center>
+
+{% endblock %}

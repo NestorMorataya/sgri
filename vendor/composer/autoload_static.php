@@ -74,9 +74,14 @@ class ComposerStaticInit50979c99cef91ca9bce7b93af5d4c25d
             'Doctrine\\Bundle\\DoctrineCacheBundle\\' => 36,
             'Doctrine\\Bundle\\DoctrineBundle\\' => 31,
         ),
+        'C' => 
+        array (
+            'CategoriaBundle\\' => 16,
+        ),
         'A' => 
         array (
             'AppBundle\\' => 10,
+            'ActivoBundle\\' => 13,
         ),
     );
 
@@ -193,9 +198,17 @@ class ComposerStaticInit50979c99cef91ca9bce7b93af5d4c25d
         array (
             0 => __DIR__ . '/..' . '/doctrine/doctrine-bundle',
         ),
+        'CategoriaBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/CategoriaBundle',
+        ),
         'AppBundle\\' => 
         array (
             0 => __DIR__ . '/../..' . '/src/AppBundle',
+        ),
+        'ActivoBundle\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/src/ActivoBundle',
         ),
     );
 

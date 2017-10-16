@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/tablas.css')}}">
+{% endblock %}
+{% block body %}
+
+
+<br>
+<hr>
+<center>
+    <h2>LISTADO DE CATEGORÍAS</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Código</th>
+                <th>Nombre</th>
+                <th></th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+        {% for categoria in categorias %}
+            <tr>
+                <td><a href="{{ path('categoria_show', { 'id': categoria.id }) }}">{{ categoria.id }}</a></td>
+                <td>{{ categoria.nombre }}</td>
+
+                <td> <a href="{{ path('categoria_show', { 'id': categoria.id }) }}">Mostrar</a></td>
+                <td><a href="{{ path('categoria_edit', { 'id': categoria.id }) }}">Editar</a></td>
+
+        {% endfor %}
+</table>
+        </tbody>
+
+</center>
+    <ul>
+        <li>
+            <a href="{{ path('menu_categoria') }}">Regresar</a>
+        </li>
+    </ul>
+{% endblock %}

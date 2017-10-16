@@ -1,3 +1,13 @@
+categoria:
+    resource: "@CategoriaBundle/Controller/"
+    type:     annotation
+    prefix:   /categoria
+
+activo:
+    resource: "@ActivoBundle/Controller/"
+    type:     annotation
+    prefix:   /activo
+
 user_usuario:
     resource: "@UserBundle/Controller/UsuarioController.php"
     type:     annotation
@@ -20,3 +30,17 @@ login_check:
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+menu_categoria:
+    resource: "@CategoriaBundle/Controller/categoriaController.php"
+    type:     annotation
+
+
+menu_activo:
+    resource: "@ActivoBundle/Controller/activoController.php"
+    type:     annotation
+
+
+
+
+

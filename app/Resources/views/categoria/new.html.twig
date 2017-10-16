@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+{% block stylesheets %}
+	<link rel="stylesheet" type="text/css" href="{{ asset('public/css/botones.css')}}">
+{% endblock %}
+{% block body %}
+<br>
+<br>
+<br>
+<div class="row well">
+ <div class="col-md-6">
+ <h2>INGRESAR CATEGORÍA</h2>
+    <div class="page-header">
+     {{ form_start(form) }}
+    <div class="form-group">
+    {{ form_label(form.nombre)}}
+    {{ form_widget(form.nombre, {'attr':{'class':'form-control'}}) }}
+   </div>
+
+    </div>
+    </div>
+    </div>
+  <br>
+<center>
+   <button class="button">Guardar</button>
+   </center>
+    {{ form_end(form) }}
+<br>
+    <ul>
+        <li>
+            <a href="{{ path('categoria_index') }}">Regresar</a>
+        </li>
+    </ul>
+
+{% endblock %}
